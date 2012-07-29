@@ -2,30 +2,30 @@
 //										//
 //////////////////////////////////////////////////////////////////////////////////
 
-var Ezgui	= function(){
+var Jegui	= function(){
 	// create the container
 	this._domElement= document.createElement('div');
-	this._domElement.classList.add('ezgui')
-	this._domElement.classList.add('ezgui')
+	this._domElement.classList.add('jegui')
+	this._domElement.classList.add('jegui')
 	document.body.appendChild(this._domElement)
 }
 
 
-Ezgui.prototype.addFolder	= function(label){
-	var folder	= new Ezgui.Folder(label)
+Jegui.prototype.addFolder	= function(label){
+	var folder	= new Jegui.Folder(label)
 	this._domElement.appendChild(folder.container());
 	return folder;
 }
 
-Ezgui.prototype.container	= function(){
+Jegui.prototype.container	= function(){
 	return this._domElement;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
-//		Ezgui.Folder							//
+//		Jegui.Folder							//
 //////////////////////////////////////////////////////////////////////////////////
 
-Ezgui.Folder	= function(label){
+Jegui.Folder	= function(label){
 	// sanity check
 	console.assert( typeof(label) === 'string' );
 	// create <table>
@@ -66,14 +66,14 @@ Ezgui.Folder	= function(label){
 
 }
 
-Ezgui.Folder.prototype.container	= function(){
+Jegui.Folder.prototype.container	= function(){
 	return this._tableEl;
 }
 
 /**
  * 
 */
-Ezgui.Folder.prototype.add	= function(obj, property, opts){
+Jegui.Folder.prototype.add	= function(obj, property, opts){
 	opts	= opts	|| {};
 	// sanity check
 	console.assert( typeof(obj) === 'object' );
@@ -92,26 +92,26 @@ Ezgui.Folder.prototype.add	= function(obj, property, opts){
 	var tdEl	= document.createElement('td');
 	trEl.appendChild(tdEl);
 	
-	for(var i = 0; i < Ezgui.Handlers.length; i++){
-		var handler	= Ezgui.Handlers[i];
+	for(var i = 0; i < Jegui.Handlers.length; i++){
+		var handler	= Jegui.Handlers[i];
 		if( !handler.canBuild(obj, property) )	continue;
 		var inputEl	= handler.doBuild(tdEl, obj, property, opts)
 		break;
 	}
-	console.assert( i !== Ezgui.Handlers.length );
+	console.assert( i !== Jegui.Handlers.length );
 	
 	return inputEl;
 }
 
 
 //////////////////////////////////////////////////////////////////////////////////
-//		Ezgui.Handlers							//
+//		Jegui.Handlers							//
 //////////////////////////////////////////////////////////////////////////////////
 
-Ezgui.Handlers	= [];
+Jegui.Handlers	= [];
 
 
-Ezgui.Handlers.push({
+Jegui.Handlers.push({
 	name	: "handlerNumber",
 	canBuild: function(obj, property, opts){
 		return typeof(obj[property]) === 'number' ? true : false;
@@ -125,7 +125,7 @@ Ezgui.Handlers.push({
 	}
 });
 
-Ezgui.Handlers.push({
+Jegui.Handlers.push({
 	name	: "handlerString",
 	canBuild: function(obj, property, opts){
 		return typeof(obj[property]) === 'string' ? true : false;

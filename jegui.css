@@ -1,4 +1,4 @@
-.ezgui {
+.jegui {
 	position	: absolute;
 	top		: 0px;
 	right		: 20px;
@@ -9,7 +9,7 @@
 	border-bottom-left-radius	: 10px 10px;
 }
 
-.ezgui thead {
+.jegui thead {
 	background-color: #aaaaaa;
 	font-size	: 130%;
 	font-weight	: 400; 

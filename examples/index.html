@@ -1,9 +1,9 @@
 <!doctype html>
-<link rel='stylesheet' href='../ezgui.css'></link>
+<link rel='stylesheet' href='../jegui.css'></link>
 <body>
-	<script src='../ezgui.js'></script>
+	<script src='../jegui.js'></script>
 <!--
-	<div class='ezgui'>
+	<div class='jegui'>
 		<table>
 			<thead>
 				<tr>
@@ -42,8 +42,8 @@
 			myStr	: 'superstr'
 		};
 	
-		var ezgui	= new Ezgui();
-		var folder	= ezgui.addFolder('Super Folder')
+		var jegui	= new Jegui();
+		var folder	= jegui.addFolder('Super Folder')
 		var element	= folder.add(opts, 'myNum', {
 			label	: 'wow'
 			// min	: 
@@ -51,10 +51,10 @@
 			// step	:
 		});
 
-		var folder	= ezgui.addFolder('Crappy Folder')
+		var folder	= jegui.addFolder('Crappy Folder')
 		var element	= folder.add(opts, 'myStr');
 
-		ezgui._domElement.addEventListener('change', function(){
+		jegui._domElement.addEventListener('change', function(){
 			console.log('channnn')
 		});
 	</script>
